@@ -1,0 +1,35 @@
+<!DOCTYPE html>    
+<html> 
+{% load static %}   
+<head>    
+    <title>BUS RESERVATION SYSTEM</title> 
+		<style>
+	body{
+		background-image:url({% static 'images/wa.jpg' %});
+		background-repeat:no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+
+</style>
+	
+</head>    
+<body >
+<!--<img src="{% static 'images/bus.jpg' %}" alt="no image" width="1350" height="540"/>-->
+ <div style="padding:200px">
+<center><h2>Login Page</h2><br></center>    
+      
+    <form method="POST" action="loginfun">
+	{% csrf_token %}
+	<center>
+	<label>USERNAME</label>
+	<input type="text" name="name11"><br><br>
+	<label>PASSWORD</label>
+	<input type="password" name="pasd"><br><br>
+	<input type="submit" value="login">
+	</center>
+	
+</form>
+</div>    
+</body>    
+</html> 	

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+	<style>
+#c {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#c td, #c th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#c tr:nth-child(even){background-color: #f2f2f2;}
+
+#c tr:hover {background-color: #ddd;}
+
+#c th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: black;
+  color: white;
+}
+*{
+	padding:0;
+	margin:0;
+	text-decoration:none;
+	list-style:none;
+	box-sizing:border-box;
+}
+body{
+	font-family:montserrat;
+}
+nav{
+	background-color:blue;
+	height:80px;
+	width:100%;
+}
+label.llk{
+	color:white;
+	font-size:35px;
+	font-weight:bold;
+	line-height:80px;
+	padding:0 100px;
+}
+nav ul{
+	float:right;
+	margin-right:20px;
+}
+nav li{
+	display:inline-block;
+	line-height:80px;
+	margin:0 5px;
+	
+}
+nav ul li a{
+	color:white;
+	font-size:18px;
+	padding:8px 13px;
+	border-radius:3px;
+	text-transform:uppercase;
+}
+a:hover{
+	background:red;
+	transition:.5s;
+}
+</style>
+</head>
+<body style="color:Black:border:1px solid white;border-radius:8px;background-color:grey;padding:30px">
+<nav>
+   
+ <label class="llk">welcome {{mg}} </label>
+ <ul>
+   
+  <li><a href="{% url 'Search_Bus'  %}">SearchBus |</a></li>
+  
+  <li><a href="{% url 'logoutview' %}">Logout</a></li>
+  
+ </ul>
+</nav>
+
+	<h3><strong>Booking Details</strong></h3><hr>
+	<table id="c">
+  <tr>
+	<th>Passenger</th>
+    <th>Busname and n0</th>
+    <th>Age</th>
+	<th>Gender</th>
+	<th>Date</th>
+	<th>Fare</th>
+	<th>Travelling</th>
+	
+	<th>Action</th>
+  </tr>
+  {% for i in pro %}
+  <tr>
+  <td>{{i.name}}</td>
+  <td>{{i.bus.bus_name}}.[{{i.bus.bus_no}}]</td>
+  <td>{{i.age}}</td>
+  <td>{{i.gender}}</td>
+  <td>{{i.date1}}</td>
+  <td>{{i.fare}}</td>
+  <td>{{i.route}}</td>
+  
+  <td><a href="{% url 'Deletemybooking' i.id %}"><button class="button button1">Delete</button></a></td>
+	</tr>
+	{% endfor %}
+	
+	
+	</table>
+</body>
+</html>

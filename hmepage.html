@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+	<style>
+h1{
+	text-align:center;
+	
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #800000;
+  border-radius:10px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color:#008080;
+}
+#ip{
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ 
+  border-radius:8px;
+}
+</style>
+</head>
+<body style="background-color:powderblue;">
+<h1>BUS RESERVATION</h1>
+
+<ul>
+   
+  
+  <li><a href="{% url 'loginpage' %}">Login</a></li>
+  <li><a href="{% url 'Reg' %}">Register</a></li>
+  
+</ul>
+<div id="ip">
+<img src="{% static 'images/bus.jpg' %}" alt="no image" width="1350" height="540"/>
+</div>
+
+</body>
+</html>

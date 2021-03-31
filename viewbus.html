@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+	<style>
+#c {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#c td, #c th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#c tr:nth-child(even){background-color: #f2f2f2;}
+
+#c tr:hover {background-color: #ddd;}
+
+#c th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: black;
+  color: white;
+}
+
+</style>
+</head>
+<body style="color:Black:border:1px solid white;border-radius:8px;background-color:grey;padding:50px">
+
+
+	<h3><strong>VIEWS ALL BUS DETAILS</strong></h3><hr>
+	<table id="c">
+  <tr>
+    <th>Busn0</th>
+    <th>Busname</th>
+    <th>From City</th>
+	<th>To City</th>
+	<th>Departure Time</th>
+	<th>Arrival Time</th>
+	<th>Travel Time</th>
+	<th>Distance</th>
+	<th>Action</th>
+  </tr>
+  {% for b in da %}
+  <tr>
+  <td>{{b.bus_no}}</td>
+  <td>{{b.bus_name}}</td>
+  <td>{{b.from_city}}</td>
+  <td>{{b.to_city}}</td>
+  <td>{{b.departuretime}}</td>
+  <td>{{b.arrivaltime}}</td>
+  <td>{{b.traveltime}}</td>
+  <td>{{b.distance}}</td>
+  <td><a href="{%url 'Editbus' id=b.id%}"><button class="button button1">Edit</button></a>
+  <a href="{% url 'Deletebus' id=b.id%}"><button class="button button1">Delete</button></a></td>
+	</tr>
+	{% endfor %}
+	</table>
+</body>
+</html>

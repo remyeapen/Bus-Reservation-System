@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+	<style>
+	body{
+		background-image:url({% static 'images/blur.jpg' %});
+		background-repeat:no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+</style>	
+</head>
+<body>
+<div style="color:Black:border:1px solid white;border-radius:8px;background-color:grad;padding:50px">
+	<h2><strong> Registration Info</strong></h2>
+    <form method="POST"  action="Reg">
+                         {% csrf_token %}<br>
+                        
+                            Firstname<br><br><input type="text" placeholder="Enter the firstname" name="fname" style="border-radius:8px;width:600px;height:35px;"><br><br>
+							Lastname<br><br><input type="text" placeholder="Enter the lastname" name="lname" style="border-radius:8px;width:600px;height:35px;"><br><br>
+							Address<br><br><input  type="text" placeholder="Enter the Address" name="address" style="border-radius:8px;width:600px;height:35px;"><br><br>
+							Email<br><br><input  type="text" placeholder="Enter the Email" name="email" style="border-radius:8px;width:600px;height:35px;"><br><br>
+							Mobile<br><br><input type="number" placeholder="Enter the number" name="mbile" style="border-radius:8px;width:600px;height:35px;"><br><br>
+                            Gender<br><br><input type="radio" placeholder="Enter the gender"  name="gender" value="male"/>Male<input type="radio"   name="gender" value="female"/>Female<br><br>
+							Datebrith<br><br><input type="date" placeholder="Enter the datebrith" type="date"  name="dob" style="border-radius:8px;width:600px;height:35px;"><br><br>
+							Username<br><br><input type="text" placeholder="Enter the username" name="username" style="border-radius:8px;width:600px;height:35px;"><br><br>
+							Password<br><br><input type="password" placeholder="Enter the password" name="password" style="border-radius:8px;width:600px;height:35px;"><br><br>
+							<input type="submit" value="Register" style="color:white;border-radius:8px;width:100px;height:35px;background-color:Black;border:1px solid black">
+                            
+                       
+    </form>
+</div>
+</body>
+</html>

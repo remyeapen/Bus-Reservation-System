@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+	<style>
+*{
+	padding:0;
+	margin:0;
+	text-decoration:none;
+	list-style:none;
+	box-sizing:border-box;
+}
+body{
+	font-family:montserrat;
+}
+nav{
+	background-color:blue;
+	height:80px;
+	width:100%;
+}
+label.llk{
+	color:white;
+	font-size:35px;
+	font-weight:bold;
+	line-height:80px;
+	padding:0 100px;
+}
+nav ul{
+	float:right;
+	margin-right:20px;
+}
+nav li{
+	display:inline-block;
+	line-height:80px;
+	margin:0 5px;
+	
+}
+nav ul li a{
+	color:white;
+	font-size:18px;
+	padding:8px 13px;
+	border-radius:3px;
+	text-transform:uppercase;
+}
+a:hover{
+	background:red;
+	transition:.5s;
+}
+
+</style>
+</head>
+<body>
+<nav>
+   
+ <label class="llk">welcome {{mg}} </label>
+ <ul>
+   
+  <li><a href="{% url 'Search_Bus'  %}">SearchBus |</a></li>
+  <li><a href="{% url 'Mybooking' %}">Mybooking |</a></li>
+  <li><a href="{% url 'logoutview' %}">Logout</a></li>
+  
+ </ul>
+</nav>
+<div style="color:Black:border:1px solid white;border-radius:8px;background-color:white;padding:100px">
+<h3><strong>ALL Availavle Bus</strong></h3><hr>
+<table width="800">
+	{% for i in route1 %}
+		<tr style="margin-top:10px">
+		<td><b><br>Bus Name:{{i.0.bus_name}}</b><br>
+		<b>Bus Number:{{i.0.bus_no}}<b><br>
+		<b>From City:{{i.0.from_city}}<b><br>
+		<b>Fare:{{fare3}}<b><br><br><br>
+		
+		<a href="{% url 'Book_detail' cu i.0.id route %}">BookNow</a></td>
+		</tr>
+		{% endfor %}
+		</table><br>
+		<h3><strong>Search Bus</strong></h3><hr>
+		<form method="POST" action="Search_Bus">
+		{% csrf_token %}
+		From City:<br><select name="fcity" style="border-radius:8px;width:600px;height:35px;">
+			{% for i in data2 %}
+				<option>{{i.route}}</option>
+			{% endfor %}
+			</select><br><br>
+		To City:<br><select name="tcity" style="border-radius:8px;width:600px;height:35px;">
+			{% for i in data2 %}
+				<option>{{i.route}}</option>
+			{% endfor %}
+			</select><br><br>
+		Travel Date:<br><input type="date" name="date" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		<input type="submit" value="Search" style="color:white;border-radius:8px;width:100px;height:35px;background-color:Black;border:1px solid black">
+		</form>
+		</div>
+</body>
+</html>

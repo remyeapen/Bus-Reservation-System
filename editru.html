@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+</head>
+<body style="background-color:green">
+<div style="color:Black:border:1px solid white;border-radius:8px;background-color:white;padding:100px">
+	<hr>
+	<form method="POST" action="" >
+		{% csrf_token %}<br>
+		
+		Route:<br><input type="text" placeholder="Enter route" name="rute" value="{{data.route}}" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Distance:<br><input type="number" placeholder="Enter distance " name="dist" value="{{data.distance}}" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Fare:<br><input type="number" placeholder="Enter Fare " name="price" value="{{data.fare}}" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		<input type="submit" value="Update Route" style="color:white;border-radius:8px;width:100px;height:35px;background-color:Black;border:1px solid black">
+		<br>
+	</form>
+	<br><br><br><br><br><br><br><br><br><br>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+	<style>
+*{
+	padding:0;
+	margin:0;
+	text-decoration:none;
+	list-style:none;
+	box-sizing:border-box;
+}
+body{
+	font-family:montserrat;
+}
+nav{
+	background-color:blue;
+	height:80px;
+	width:100%;
+}
+label.llk{
+	color:white;
+	font-size:35px;
+	font-weight:bold;
+	line-height:80px;
+	padding:0 100px;
+}
+nav ul{
+	float:right;
+	margin-right:20px;
+}
+nav li{
+	display:inline-block;
+	line-height:80px;
+	margin:0 5px;
+	
+}
+nav ul li a{
+	color:white;
+	font-size:20px;
+	padding:8px 13px;
+	border-radius:3px;
+	text-transform:uppercase;
+}
+a:hover{
+	<!--background:red;-->
+	transition:.5s;
+}
+div{
+	background-image:url({% static 'images/blur.jpg' %});
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+</style>
+</head>
+<body >
+<nav>
+   
+ <label class="llk">welcome {{mg}} </label>
+ <ul>
+   
+  <li><a href="{% url 'Search_Bus'  %}">SearchBus |</a></li>
+  <li><a href="{% url 'Mybooking' %}">Mybooking |</a></li>
+  <li><a href="{% url 'logoutview' %}">Logout</a></li>
+  
+ </ul>
+</nav>
+<div style="color:Black:border:1px solid white;border-radius:8px;background-color:white;padding:100px">
+	<h3><strong>Make Payment:Enter your Card Details</strong></h3><hr>
+	<form method="POST" action="" >
+		{% csrf_token %}
+		
+		<br><input type="number" name="cnum" placeholder="card number" style="border-radius:8px;width:400px;height:35px;"><br><br>
+		<br><input type="text" placeholder="Enter card name" name="cname" style="border-radius:8px;width:400px;height:35px;"><br><br>
+		<br><input type="password" placeholder="Enter cvv number " name="cvnum" style="border-radius:8px;width:400px;height:35px;"><br><br>
+		<br><input type="number" placeholder="Enter expire month  " name="em" style="border-radius:8px;width:400px;height:35px;">
+		<input type="number" placeholder="Enter expire year" name="ey"style="border-radius:8px;width:400px;height:35px;"><br><br>
+		<b>Total Payment:{{total}}</b><br><br>
+		<b><a href="{% url 'Mybooking' %}">Mybooking</a></b>
+		
+		
+	</form >
+</div>	
+</body>
+</html> 

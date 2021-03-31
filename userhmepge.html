@@ -1,0 +1,75 @@
+<!DOCTYPE html>    
+<html>
+{% load static %}
+<head>
+<title>BUS RESERVATION SYSTEM</title>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+*{
+	padding:0;
+	margin:0;
+	text-decoration:none;
+	list-style:none;
+	box-sizing:border-box;
+}
+body{
+	font-family:montserrat;
+}
+nav{
+	background-color:blue;
+	height:80px;
+	width:100%;
+}
+label.llk{
+	color:white;
+	font-size:35px;
+	font-weight:bold;
+	line-height:80px;
+	padding:0 100px;
+}
+nav ul{
+	float:right;
+	margin-right:20px;
+}
+nav li{
+	display:inline-block;
+	line-height:80px;
+	margin:0 5px;
+	
+}
+nav ul li a{
+	color:white;
+	font-size:18px;
+	padding:8px 13px;
+	border-radius:3px;
+	text-transform:uppercase;
+}
+a:hover{
+	background:red;
+	transition:.5s;
+}
+div{
+	background-image:url({% static 'images/upic.jpg' %});
+	background-repeat:no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+</style>
+</head>
+<body>
+<nav>
+   
+ <label class="llk">welcome {{mg}} </label>
+ <ul>
+   
+  <li><a href="{% url 'Search_Bus'  %}">SearchBus |</a></li>
+  <li><a href="{% url 'Mybooking' %}">Mybooking |</a></li>
+  <li><a href="{% url 'logoutview' %}">Logout</a></li>
+  
+ </ul>
+</nav>
+<div style="color:Black:border:1px solid white;border-radius:8px;background-color:gray;padding:290px">
+
+</div>
+</body>
+</html>

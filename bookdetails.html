@@ -1,0 +1,120 @@
+<html>
+{% load static %}
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+	<style>
+	body{
+		background-image:url({% static 'images/blur.jpg' %});
+		background-repeat:no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	}
+	#c {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#c td, #c th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#c tr:nth-child(even){background-color: #f2f2f2;}
+
+#c tr:hover {background-color: #ddd;}
+
+#c th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: black;
+  color: white;
+}
+nav{
+	background-color:black;
+	height:80px;
+	width:100%;
+}
+label.llk{
+	color:white;
+	font-size:30px;
+	font-weight:bold;
+	line-height:80px;
+	padding:0 100px;
+	
+}
+nav ul{
+	float:right;
+	margin-right:20px;
+}
+nav li{
+	display:inline-block;
+	line-height:80px;
+	margin:0 5px;
+	
+}
+nav ul li a{
+	color:white;
+	font-size:18px;
+	padding:8px 13px;
+	border-radius:3px;
+	text-transform:uppercase;
+}
+a:hover{
+	background:red;
+	transition:.5s;
+}
+</style>	
+</head>
+<body>
+<div style="color:Black:border:1px solid white;border-radius:8px;background-color:grad;padding:50px">
+	<h3><strong>ALL Added Passengers</strong></h3><hr>
+	<table id="c">
+  <tr>
+	<th>Name</th>
+    <th>Busname and n0</th>
+    <th>Age</th>
+	<th>Gender</th>
+	<th>Date</th>
+	<th>Fare</th>
+	<th>Action</th>
+  </tr>
+ {% for b in pro %}
+  <tr>
+  <td>{{b.name}}</td>
+  <td>{{b.bus.bus_name}}.[{{b.bus.bus_no}}]</td>
+  <td>{{b.age}}</td>
+  <td>{{b.gender}}</td>
+  <td>{{b.date1}}</td>
+  <td>{{b.fare}}
+  <td><a href="{% url 'Deletepassenger' b.id %}"><button class="button button1">Delete</button></a></td>
+	</tr>
+	
+	{% endfor %}
+	</table>
+<nav>
+ <label class="llk">Total={{total}} </label>
+ <ul>
+   
+  <li><a href="{% url 'Carddetails' cu route pid  %}">BookNow</a></li>
+  </ul>
+</nav>
+	<h2><strong>Enter Passenger Details</strong></h2>
+	<form method="POST"  action="">
+		{% csrf_token %}<br>
+	<input type="text" placeholder="passenger name" name="pname" style="border-radius:8px;width:300px;height:35px;">
+	<input type="number" placeholder="passenger age" name="page" style="border-radius:8px;width:300px;height:35px;">
+	<select name="gender" style="border-radius:8px;width:300px;height:35px;">
+                     <option value="male">Male</option>
+					 <option value="female">Female</option>
+	</select>
+	<input type="submit" value="ADD" style="color:white;border-radius:8px;width:100px;height:35px;background-color:Black;border:1px solid black">
+	</form>
+	
+	
+</div>
+</body>	
+</html>
+					 
+	

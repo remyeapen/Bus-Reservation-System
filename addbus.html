@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<style>
+*{
+	padding:0;
+	margin:0;
+	text-decoration:none;
+	list-style:none;
+	box-sizing:border-box;
+}
+body{
+	font-family:montserrat;
+}
+nav{
+	background-color:blue;
+	height:80px;
+	width:100%;
+}
+label.llk{
+	color:white;
+	font-size:35px;
+	font-weight:bold;
+	line-height:80px;
+	padding:0 100px;
+}
+nav ul{
+	float:right;
+	margin-right:20px;
+}
+nav li{
+	display:inline-block;
+	line-height:80px;
+	margin:0 5px;
+	
+}
+nav ul li a{
+	color:white;
+	font-size:18px;
+	padding:8px 13px;
+	border-radius:3px;
+	text-transform:uppercase;
+}
+a:hover{
+	background:red;
+	transition:.5s;
+}
+</style>
+</head>	
+
+<body>
+<nav>
+   
+ <label class="llk">WELCOME ADMIN</label>
+ <ul>
+   
+  <li><a href="{% url 'Addbus'  %}">Addbus |</a></li>
+  <li><a href="{% url 'viewbus'  %}">Viewbus |</a></li>
+  <li><a href="{% url 'Addroute'  %}">Addroute   |</a></li>
+  <li><a href="{% url 'viewroute'  %}">Viewroute |</a></li>
+  <li><a href="#">Logout</a></li>
+  
+ </ul>
+</nav>
+<div style="color:Black:border:1px solid white;border-radius:8px;background-color:white;padding:50px">
+	<h3><strong>ADD NEW BUS</strong></h3><hr>
+	<form method="POST" action="addbus" >
+		{% csrf_token %}<br>
+		Bus Name:<br><input type="text" placeholder="Enter Bus Name" name="busname" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Bus Number:<br><input type="number" placeholder="Enter Bus Number" name="busnum" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		From City:<br><input type="text" placeholder="Enter From City " name="fcity" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		To City:<br><input type="text" placeholder="Enter To City " name="tcity" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Arrival Time:<br><input type="text" placeholder="Enter Arrival Time HH:MM AM/PM" name="atime" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Departure Time:<br><input type="text" placeholder="Enter Departure Time HH:MM AM/PM" name="dtime" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Travel Time:<br><input type="text" placeholder="Enter Travel Time " name="ttime" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Distance:<br><input type="number" placeholder="Enter distance" name="dis" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		<input type="submit" value="Add Bus" style="color:white;border-radius:8px;width:100px;height:35px;background-color:Black;border:1px solid black">
+	</form>
+</div>
+</body>
+</html>

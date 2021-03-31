@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUS RESERVATION SYSTEM</title>
+</head>
+<body style="background-color:green">
+<div style="color:Black:border:1px solid white;border-radius:8px;background-color:white;padding:100px">
+	<!--<h3><strong>ADD NEW BUS</strong></h3>--><hr>
+	<form method="POST" action="" >
+		{% csrf_token %}
+		
+		Bus Name:<br><input type="text" name="busname" placeholder="Enter the Name" value="{{b.bus_name}}"style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Bus Number:<br><input type="number" placeholder="Enter Bus Number" name="busnum" value="{{b.bus_no}}"style="border-radius:8px;width:600px;height:35px;"><br><br>
+		From City:<br><input type="text" placeholder="Enter From City " name="fcity" value="{{b.from_city}}"style="border-radius:8px;width:600px;height:35px;"><br><br>
+		To City:<br><input type="text" placeholder="Enter To City " name="tcity" value="{{b.to_city}}" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Arrival Time:<br><input type="text" placeholder="Enter Arrival Time HH:MM AM/PM" name="atime" value="{{b.arrivaltime}}"style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Departure Time:<br><input type="text" placeholder="Enter Departure Time HH:MM AM/PM" name="dtime" value="{{b.departuretime}}" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Travel Time:<br><input type="text" placeholder="Enter Travel Time " name="ttime" value="{{b.traveltime}}" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		Distance:<br><input type="number" placeholder="Enter distance" name="dis" value="{{b.distance}}" style="border-radius:8px;width:600px;height:35px;"><br><br>
+		<input type="submit" value="Update Bus" style="color:white;border-radius:8px;width:100px;height:35px;background-color:Black;border:1px solid black">
+		
+	</form>
+</div>
+</body>
+</html>
